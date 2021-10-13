@@ -1,0 +1,18 @@
+.holder {
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: 30px;
+}
+
+.holder img {
+  width: 60%; /* Will shrink image to 30% of its original width */
+  height: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.card {
+  color: white;
+}

@@ -1,0 +1,16 @@
+.example-header-image {
+  width: 45px; /* width of container */
+  height: 45px; /* height of container */
+  object-fit: cover;
+}
+
+.header-card {
+  margin-left: 5px;
+}
+
+.cropped {
+  width: 500px; /* width of container */
+  height: 500px; /* height of container */
+  object-fit: cover;
+  border: 5px solid black;
+}

@@ -1,0 +1,33 @@
+<mat-toolbar class="navbar">
+  <div text-wrap>Star Wars</div>
+  <button mat-icon-button (click)="navigateHome()">
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-icon-button (click)="navigateProfile()">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container-sm">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100vh"
+  >
+    <div class="col-12">
+      <div class="card bg-secondary font-white">
+        <div class="card-body">
+          <h3 class="card-title">Hi @{{correo}}</h3>
+          <h4 class="card-text">Hope your are enjoying the cards, may the force be with you.</h4>
+          <p class="card-text">Here are some interestings links...</p>
+          <a href="https://starwars.fandom.com/es/wiki/Star_Wars" class="btn btn-primary">Go Wiki Star Wars</a>
+          <br>
+          <br>
+          <a href="https://www.starwars.com/" class="btn btn-warning">Go Star Wars Official Web</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
