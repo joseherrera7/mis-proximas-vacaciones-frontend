@@ -22,17 +22,40 @@
         src="https://raw.githubusercontent.com/joseherrera7/mis-proximas-vacaciones-frontend/main/vacaciones.jpg"
         class="img-fluid"
         alt="Responsive image"
-        style="padding-bottom: 25px;"
+        style="padding-bottom: 25px"
       />
     </div>
     <div class="row justify-content-center">
       <div class="col-md-6">
         <ngp-image-picker
-            style="align-items: center;"
+          style="align-items: center"
           [_config]="imagePickerConf"
           ($imageChanged)="onImageChange($event)"
         ></ngp-image-picker>
-        <button *ngIf="botonBuscar">Buscar</button>
+
+        <button class="btn btn-danger" (click)="triggerModal(modalData)">
+          Open Modal
+        </button>
+
+        <ng-template #modalData let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+              Cargando...
+            </h4>
+          </div>
+          <div class="modal-body">
+            <img style="width:300px;height:300px" class="img-fluid rounded mx-auto d-block" src="https://cdn.dribbble.com/users/722246/screenshots/4400319/loading_crescor_dribbble.gif"/>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="modal.close('Save click')"
+            >
+              Close
+            </button>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>
