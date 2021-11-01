@@ -1,4 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -28,5 +29,23 @@ export class ApiServiceService {
           }
         )
       );
+  }
+
+  getWeatherInfo(place: string) {
+    
+    console.log('Weather of: ' , place)
+    /*return this.httpClient
+      .post<any[]>(`${environment.server}`)
+      .pipe(
+        tap(
+          async (res: any) => {
+            console.log(res);
+          },
+          (err) => {
+            console.error(err);
+          }
+        )
+      );*/
+      
   }
 }
