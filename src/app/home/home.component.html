@@ -26,49 +26,88 @@
       />
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-2">
+        SUBIR IMAGEN:
         <ngp-image-picker
-          style="align-items: center"
+          style="align-items: center; padding-top: 200px"
           [_config]="imagePickerConf"
           ($imageChanged)="onImageChange($event)"
         ></ngp-image-picker>
+      </div>
+      <div
+        class="col-md-2"
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        OR
+      </div>
+      <div class="col-md-2">
+        TOMAR FOTO:
+        <video
+          style="width: 90%; margin-left: auto; margin-right: auto"
+          [class.show]="!isCaptured"
+          [class.hide]="isCaptured"
+          #video
+          id="video"
+          [width]="WIDTH"
+          [height]="HEIGHT"
+          autoplay
+        ></video>
+        <canvas
+          style="width: 70%; margin-left: auto; margin-right: auto"
+          [class.show]="isCaptured"
+          [class.hide]="!isCaptured"
+          #canvas
+          id="canvas"
+          [width]="WIDTH"
+          [height]="HEIGHT"
+        ></canvas>
 
-        <button class="btn btn-danger" (click)="triggerModal(modalData)">
-          Open Modal
-        </button>
+        <div class="snap-container">
+          <button
+            class="btn btn-primary"
+            *ngIf="!isCaptured"
+            (click)="capture()"
+          >
+            Tomar foto
+          </button>
 
-        <ng-template #modalData let-modal>
-          <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">
-              Cargando...
-            </h4>
-          </div>
-          <div class="modal-body">
-            <img style="width:300px;height:300px" class="img-fluid rounded mx-auto d-block" src="https://cdn.dribbble.com/users/722246/screenshots/4400319/loading_crescor_dribbble.gif"/>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-danger"
-              (click)="modal.close('Save click')"
-            >
-              Close
-            </button>
-          </div>
-        </ng-template>
+          <button
+            class="btn btn-danger"
+            *ngIf="isCaptured"
+            (click)="removeCurrent()"
+          >
+            Tomar otra
+          </button>
 
-        
+          <button
+            class="btn btn-success"
+            *ngIf="isCaptured || isUploaded"
+            style="margin: 20px"
+            (click)="analyze()"
+          >
+            Analizar foto
+          </button>
+        </div>
+        <div class="row justify-content-center" *ngIf="isSearching">
+          <div class="col-md-6">
+            <img
+              style="width: 300px; height: 300px"
+              class="img-fluid rounded mx-auto d-block"
+              src="https://cdn.dribbble.com/users/722246/screenshots/4400319/loading_crescor_dribbble.gif"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div class="row justify-content-center" *ngIf="isRecomendation">
       <div class="col-md-3">
-        <img src="/assets/Imagenes/OK.jpg">
+        <img src="/assets/Imagenes/OK.jpg" />
       </div>
       <div class="col-md-3">
-        <img src="/assets/Imagenes/SoSo.jpg">
+        <img src="/assets/Imagenes/SoSo.jpg" />
       </div>
       <div class="col-md-3">
-        <img src="/assets/Imagenes/BAD.jpg"> 
+        <img src="/assets/Imagenes/BAD.jpg" />
       </div>
     </div>
   </div>
