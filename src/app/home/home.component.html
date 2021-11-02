@@ -88,15 +88,78 @@
             Analizar foto
           </button>
         </div>
-        <div class="row justify-content-center" *ngIf="isSearching">
-          <div class="col-md-6">
-            <img
-              style="width: 300px; height: 300px"
-              class="img-fluid rounded mx-auto d-block"
-              src="https://cdn.dribbble.com/users/722246/screenshots/4400319/loading_crescor_dribbble.gif"
-            />
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center" *ngIf="isSearching">
+      <div class="col-md-6" style="margin: 0 auto;">
+        <img
+          style="width: 300px; height: 300px;"
+          class="img-fluid center-block rounded mx-auto d-block"
+          src="https://cdn.dribbble.com/users/722246/screenshots/4400319/loading_crescor_dribbble.gif"
+        />
+      </div>
+    </div>
+    <div class="row justify-content-center" *ngIf="isResult">
+      <div class="col-md-6" style="margin: 0 auto;">
+        <h3>RESULTADO</h3>
+        <table>
+          <tr>
+            <th>
+              Locación
+            </th>
+            <th>
+              {{data.location}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Ciudad
+            </th>
+            <th>
+              {{data.city}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              País
+            </th>
+            <th>
+              {{data.country}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Temperatura
+            </th>
+            <th>
+              {{data.weather.temp}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Humedad
+            </th>
+            <th>
+              {{data.weather.humidity}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Latitud
+            </th>
+            <th>
+              {{data.lat}}
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Longitud
+            </th>
+            <th>
+              {{data.lon}}
+            </th>
+          </tr>
+        </table>
       </div>
     </div>
     <div class="row justify-content-center" *ngIf="isRecomendation">
