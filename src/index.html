@@ -19,12 +19,59 @@
     <app-root></app-root>
   </div>
 
-  <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-    <input type="text" placeholder="Name" name="name" ngModel required #name="ngModel">
-    <input type="text" placeholder="Email" email name="email" ngModel required #email="ngModel">
-    <textarea placeholder="Messages" name="messages" ngModel required #messages="ngModel"></textarea>
-    <input type="submit" value="Send">
+  <form
+  action="https://formspree.io/f/mqkwvpnr"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="_replyto">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
 </form>
+<script type="text/javascript">
+ import { useForm, ValidationError } from '@formspree/react';
+function ContactForm() {
+  const [state, handleSubmit] = useForm("mqkwvpnr");
+  if (state.succeeded) {
+      return <p>Thanks for joining!</p>;
+  }
+  return (
+      <form onSubmit={handleSubmit}>
+      <label htmlFor="email">
+        Email Address
+      </label>
+      <input
+        id="email"
+        type="email" 
+        name="email"
+      />
+      <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
+      <textarea
+        id="message"
+        name="message"
+      />
+      <ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+    </form>
+  );
+}
+</script>
 <br><br>
   <h2>¿Qué te pareció nuestra recomendación?</h2>
   <br>
