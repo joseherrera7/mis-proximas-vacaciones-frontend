@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Mis próximas vacaciones</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <div style="margin: 10; padding: 10">
-      <app-root></app-root>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Mis próximas vacaciones</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div style="margin: 10; padding: 10">
+    <app-root></app-root>
+  </div>
+  <h2>¿Qué te pareció nuestra recomendación?</h2>
+  <br>
+
+
+  </div>
+  <div class="row justify-content-center" *ngIf="isRecomendation">
+    <div class="col-md-3">
+      <img src="/assets/Imagenes/OK.jpg" width="20%" height="50%">
+      <div id="count_click"></div>
+      <button id="botonClick">¡Excelente!</button>
+      <p id="areaContador"></p>
+      <script type="text/javascript">
+        var botonElement = document.getElementById("botonClick");
+        var pElement = document.getElementById("areaContador");
+        var contador = 0;
+        botonElement.onclick = function () {
+          contador++;
+          pElement.textContent = contador;
+        }
+      </script>
     </div>
-    <h2>¿Qué te pareció nuestra recomendación?</h2>
-    <br>
-    <div class="row justify-content-center" *ngIf="isRecomendation">
-      <div class="col-md-3">
-        <img src="/assets/Imagenes/OK.jpg" width="20%" height="50%">
-      </div>
-      <div id="count_click"></div>
-<button id="botonClick">¡Excelente!</button>
-<p id="areaContador"></p>
-        <script type="text/javascript">
-            var botonElement = document.getElementById("botonClick");
-            var pElement = document.getElementById("areaContador");
-            var contador = 0;
-            botonElement.onclick = function () {
-                contador++;
-                pElement.textContent = contador;
-            }
-        </script>
-      <div class="col-md-3">
-        <img src="/assets/Imagenes/SoSo.jpg" width="30%" height="40%">
-      </div>
-      <div id="count_click"></div>
-<button id="botonClick2">No muy bueno</button>
-<p id="areaContador2"></p>
-        <script type="text/javascript">
-            var botonElement = document.getElementById("botonClick2");
-            var pElement = document.getElementById("areaContador2");
-            var contador = 0;
-            botonElement.onclick = function () {
-                contador++;
-                pElement.textContent = contador;
-            }
-        </script>
-      <div class="col-md-3">
-        <img src="/assets/Imagenes/BAD.jpg" width="20%" height="50%"> 
-      </div>
-      <div id="count_click"></div>
-<button id="botonClick3">¡Todo mal!</button>
-<p id="areaContador3"></p>
-        <script type="text/javascript">
-            var botonElement = document.getElementById("botonClick3");
-            var pElement = document.getElementById("areaContador3");
-            var contador = 0;
-            botonElement.onclick = function () {
-                contador++;
-                pElement.textContent = contador;
-            }
-        </script>
+
+    <div class="col-md-3">
+      <img src="/assets/Imagenes/SoSo.jpg" width="30%" height="40%">
+      <div id="count_click2"></div>
+      <button id="boton">No muy bueno</button>
+      <p id="area"></p>
+      <script type="text/javascript">
+        var botonElement2 = document.getElementById("boton");
+        var pElement2 = document.getElementById("area");
+        var contador2 = 0;
+        botonElement2.onclick = function () {
+          contador2++;
+          pElement2.textContent = contador2;
+        }
+      </script>
     </div>
-    
-  </body>
+
+    <div class="col-md-3">
+      <img src="/assets/Imagenes/BAD.jpg" width="20%" height="50%">
+      <div id="count_click3"></div>
+      <button id="Click">¡Todo mal!</button>
+      <p id="Contador"></p>
+      <script type="text/javascript">
+        var botonElement3 = document.getElementById("Click");
+        var pElement3 = document.getElementById("Contador");
+        var contador3 = 0;
+        botonElement3.onclick = function () {
+          contador3++;
+          pElement3.textContent = contador3;
+        }
+      </script>
+    </div>
+  </div>
+</body>
 </html>
