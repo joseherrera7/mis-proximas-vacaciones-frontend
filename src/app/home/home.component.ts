@@ -68,7 +68,26 @@ export class HomeComponent implements OnInit {
             const area = document.getElementById(
               'resultado'
             ) as HTMLTextAreaElement;
-            area.value = 'lololololol';
+            if (this.data.weather.humidity >= 70) {
+              this.recomendacion += 'Llevar capa y paraguas';
+              if (this.data.weather.temp < 270) {
+                this.recomendacion +=
+                  ' y se necesitan abrigos grandes porque esta muy frio.';
+              } else {
+                this.recomendacion +=
+                  ' y no se necesitan abrigos grandes porque no esta muy frio.';
+              }
+            } else if (this.data.weather.humidity <= 70) {
+              this.recomendacion += 'No se necesita paraguas';
+              if (this.data.weather.temp < 270) {
+                this.recomendacion +=
+                  ' y se necesitan abrigos grandes porque esta muy frio.';
+              } else {
+                this.recomendacion +=
+                  ' y no se necesitan abrigos grandes porque no esta muy frio.';
+              }
+            }
+            area.value = this.recomendacion + " Temperatura: " + this.data.weather.temp + " K; Humedad: " + this.data.weather.humidity;
             this.isSearching = false;
             this.isResult = true;
           });
@@ -131,8 +150,6 @@ export class HomeComponent implements OnInit {
                 this.recomendacion +=
                   ' y no se necesitan abrigos grandes porque no esta muy frio.';
               }
-
-              this.recomendacion += 'Llevar paraguas';
             } else if (this.data.weather.humidity <= 70) {
               this.recomendacion += 'No se necesita paraguas';
               if (this.data.weather.temp < 270) {
