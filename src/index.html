@@ -26,5 +26,55 @@
     <div style="margin: 10; padding: 10">
       <app-root></app-root>
     </div>
+    <h2>¿Qué te pareció nuestra recomendación?</h2>
+    <br>
+    <div class="row justify-content-center" *ngIf="isRecomendation">
+      <div class="col-md-3">
+        <img src="/assets/Imagenes/OK.jpg" width="20%" height="50%">
+      </div>
+      <div id="count_click"></div>
+<button id="botonClick">¡Excelente!</button>
+<p id="areaContador"></p>
+        <script type="text/javascript">
+            var botonElement = document.getElementById("botonClick");
+            var pElement = document.getElementById("areaContador");
+            var contador = 0;
+            botonElement.onclick = function () {
+                contador++;
+                pElement.textContent = contador;
+            }
+        </script>
+      <div class="col-md-3">
+        <img src="/assets/Imagenes/SoSo.jpg" width="30%" height="40%">
+      </div>
+      <div id="count_click"></div>
+<button id="botonClick2">No muy bueno</button>
+<p id="areaContador2"></p>
+        <script type="text/javascript">
+            var botonElement = document.getElementById("botonClick2");
+            var pElement = document.getElementById("areaContador2");
+            var contador = 0;
+            botonElement.onclick = function () {
+                contador++;
+                pElement.textContent = contador;
+            }
+        </script>
+      <div class="col-md-3">
+        <img src="/assets/Imagenes/BAD.jpg" width="20%" height="50%"> 
+      </div>
+      <div id="count_click"></div>
+<button id="botonClick3">¡Todo mal!</button>
+<p id="areaContador3"></p>
+        <script type="text/javascript">
+            var botonElement = document.getElementById("botonClick3");
+            var pElement = document.getElementById("areaContador3");
+            var contador = 0;
+            botonElement.onclick = function () {
+                contador++;
+                pElement.textContent = contador;
+            }
+        </script>
+    </div>
+    
   </body>
 </html>

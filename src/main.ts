@@ -10,3 +10,18 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+  
+  var counterVal = 0;
+
+  function incrementClick() {
+      updateDisplay(++counterVal);
+  }
+  
+  function resetCounter() {
+      counterVal = 0;
+      updateDisplay(counterVal);
+  }
+  
+  function updateDisplay(val) {
+      document.getElementById("counter-label").innerHTML = val;
+  }
