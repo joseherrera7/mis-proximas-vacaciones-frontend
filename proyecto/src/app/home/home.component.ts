@@ -21,8 +21,7 @@ export class HomeComponent implements OnInit {
   isCaptured: boolean;
   isUploaded: boolean;
   isResult = false;
-  data: any;
-  recomendacion: string;
+  data : any;
 
   @ViewChild('video')
   public video: ElementRef;
@@ -55,7 +54,6 @@ export class HomeComponent implements OnInit {
       this.isSearching = true;
       this.imagen = e;
       try {
-        this.recomendacion = '';
         const file = this.DataURIToBlob(e);
         let response = await this.apiService.getImageInfo(file);
         if (response.ok === false) {
@@ -65,9 +63,7 @@ export class HomeComponent implements OnInit {
           response.json().then((data) => {
             console.log(data);
             this.data = data;
-            const area = document.getElementById(
-              'resultado'
-            ) as HTMLTextAreaElement;
+            const area = document.getElementById('resultado') as HTMLTextAreaElement;
             area.value = 'lololololol';
             this.isSearching = false;
             this.isResult = true;
@@ -114,36 +110,12 @@ export class HomeComponent implements OnInit {
           console.log('Response', response);
           console.log('Error', response.status, response.statusText);
           this.isSearching = false;
-          this.recomendacion = '';
         } else {
           response.json().then((data) => {
             console.log(data);
             this.data = data;
-            const area = document.getElementById(
-              'resultado'
-            ) as HTMLTextAreaElement;
-            if (this.data.weather.humidity >= 70) {
-              this.recomendacion += 'Llevar capa y paraguas';
-              if (this.data.weather.temp < 270) {
-                this.recomendacion +=
-                  ' y se necesitan abrigos grandes porque esta muy frio.';
-              } else {
-                this.recomendacion +=
-                  ' y no se necesitan abrigos grandes porque no esta muy frio.';
-              }
-
-              this.recomendacion += 'Llevar paraguas';
-            } else if (this.data.weather.humidity <= 70) {
-              this.recomendacion += 'No se necesita paraguas';
-              if (this.data.weather.temp < 270) {
-                this.recomendacion +=
-                  ' y se necesitan abrigos grandes porque esta muy frio.';
-              } else {
-                this.recomendacion +=
-                  ' y no se necesitan abrigos grandes porque no esta muy frio.';
-              }
-            }
-            area.value = this.recomendacion + " Temperatura: " + this.data.weather.temp + " K; Humedad: " + this.data.weather.humidity;
+            const area = document.getElementById('resultado') as HTMLTextAreaElement;
+            area.value = 'lololololol';
             this.isSearching = false;
             this.isResult = true;
           });

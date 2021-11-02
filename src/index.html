@@ -18,68 +18,12 @@
   <div style="margin: 10; padding: 10">
     <app-root></app-root>
   </div>
-
-  <form
-  action="https://formspree.io/f/mqkwvpnr"
-  method="POST"
->
-  <label>
-    Tu Email:
-    <input type="email" name="_replyto">
-  </label>
-  <label>
-    Tu resultado:
-    <textarea name="message"></textarea>
-  </label>
-  <button type="submit">Enviar</button>
-</form>
-<script type="text/javascript">
- import { useForm, ValidationError } from '@formspree/react';
-function ContactForm() {
-  const [state, handleSubmit] = useForm("mqkwvpnr");
-  if (state.succeeded) {
-      return <p>Thanks for joining!</p>;
-  }
-  return (
-      <form onSubmit={handleSubmit}>
-      <label htmlFor="email">
-        Email Address
-      </label>
-      <input
-        id="email"
-        type="email" 
-        name="email"
-      />
-      <ValidationError 
-        prefix="Email" 
-        field="email"
-        errors={state.errors}
-      />
-      <textarea
-        id="message"
-        name="message"
-      />
-      <ValidationError 
-        prefix="Message" 
-        field="message"
-        errors={state.errors}
-      />
-      <button type="submit" disabled={state.submitting}>
-        Submit
-      </button>
-    </form>
-  );
-}
-</script>
-<br><br>
-  <h2>¿Qué te pareció nuestra recomendación?</h2>
-  <br>
-
-
-  </div>
-  <div class="row justify-content-center" *ngIf="isRecomendation">
+   <div class="row justify-content-center" *ngIf="isRecomendation">
+    <br /><br />
+    <h2>¿Qué te pareció nuestra recomendación?</h2>
+    <br />
     <div class="col-md-3">
-      <img src="/assets/Imagenes/OK.jpg" width="20%" height="50%">
+      <img src="/assets/Imagenes/OK.jpg" width="20%" height="50%" />
       <div id="count_click"></div>
       <button id="botonClick">¡Excelente!</button>
       <p id="areaContador"></p>
@@ -90,12 +34,12 @@ function ContactForm() {
         botonElement.onclick = function () {
           contador++;
           pElement.textContent = contador;
-        }
+        };
       </script>
     </div>
 
     <div class="col-md-3">
-      <img src="/assets/Imagenes/SoSo.jpg" width="30%" height="40%">
+      <img src="/assets/Imagenes/SoSo.jpg" width="30%" height="40%" />
       <div id="count_click2"></div>
       <button id="boton">No muy bueno</button>
       <p id="area"></p>
@@ -106,12 +50,12 @@ function ContactForm() {
         botonElement2.onclick = function () {
           contador2++;
           pElement2.textContent = contador2;
-        }
+        };
       </script>
     </div>
 
     <div class="col-md-3">
-      <img src="/assets/Imagenes/BAD.jpg" width="20%" height="50%">
+      <img src="/assets/Imagenes/BAD.jpg" width="20%" height="50%" />
       <div id="count_click3"></div>
       <button id="Click">¡Todo mal!</button>
       <p id="Contador"></p>
@@ -122,7 +66,7 @@ function ContactForm() {
         botonElement3.onclick = function () {
           contador3++;
           pElement3.textContent = contador3;
-        }
+        };
       </script>
     </div>
   </div>

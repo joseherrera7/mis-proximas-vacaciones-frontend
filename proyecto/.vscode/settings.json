@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/9076779f-ce9b-4866-bf2d-2de28d7df6c5/resourceGroups/luliapp/providers/Microsoft.Web/sites/star-wars-cards",
+    "appService.deploySubpath": "dist"
+}
