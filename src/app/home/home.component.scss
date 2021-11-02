@@ -35,11 +35,13 @@ body {
   color: #000;
   background-color: var(--bg-color);
   font-family: 'Maitree', serif;
+  background-image: url(https://cdn.pixabay.com/photo/2016/03/03/09/21/travel-1233762_1280.jpg);
 }
 
 h3{
     font-size: 3em;
     font-weight: normal;
+    text-align: center;
 }
 
 /* title styles */
@@ -93,3 +95,19 @@ h3{
     0% {transform: translateX(0)}
     100% {transform: translateX(200%)}
 }
+body{
+    background-image: url(https://wallpaperaccess.com/full/450552.jpg) center center cover no-repeat fixed;
+    padding: 400px 100px;
+	text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+  }
+  p{
+      text-align: center;
+      background-color: white;
+      opacity: .5;
+      color: black;
+  }
+

@@ -10,28 +10,20 @@
       <p>
         ¿Tienes una idea de algún lugar a donde quieras ir en tus proximas
         vacaciones pero necesitas información?
-      </p>
-      <p>No te preocupes, nosotros te ayudamos.</p>
-      <p>
+ <br>
+      No te preocupes, nosotros te ayudamos.
+      <br>
         Solamente sube una fotografía del lugar donde necesitas saber la
         ubicación y nosotros la ubicaremos por ti.
-      </p>
-      <p>
+        <br>
         Adicionalmente, también te diremos el pronóstico del clima para los
         próximos 15 días y sugerencias de cómo vestir.
-      </p>
+   
     </div>
-    <div class="col-md-6">
-      <img
-        src="https://raw.githubusercontent.com/joseherrera7/mis-proximas-vacaciones-frontend/main/vacaciones.jpg"
-        class="img-fluid"
-        alt="Responsive image"
-        
-      />
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-md-2">
-        SUBIR IMAGEN:
+   
+    <div class="row justify-content-center" id="foto">
+      <div class="col-md-2" id="subir">
+        <h4>SUBIR IMAGEN:</h4>
         <ngp-image-picker
           style="align-items: center; padding-top: 200px"
           [_config]="imagePickerConf"
@@ -42,10 +34,10 @@
         class="col-md-2"
         style="display: flex; justify-content: center; align-items: center"
       >
-        OR
+    <h4>OR</h4>
       </div>
       <div class="col-md-2">
-        TOMAR FOTO:
+      <h4>TOMAR FOTO:</h4>
         <video
           style="width: 90%; margin-left: auto; margin-right: auto"
           [class.show]="!isCaptured"
