@@ -18,6 +18,61 @@
   <div style="margin: 10; padding: 10">
     <app-root></app-root>
   </div>
+
+  <form
+  action="https://formspree.io/f/mqkwvpnr"
+  method="POST"
+>
+  <label>
+    Tu Email:
+    <input type="email" name="_replyto">
+  </label>
+  <label>
+    Tu resultado:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Enviar</button>
+</form>
+<script type="text/javascript">
+ import { useForm, ValidationError } from '@formspree/react';
+function ContactForm() {
+  const [state, handleSubmit] = useForm("mqkwvpnr");
+  if (state.succeeded) {
+      return <p>Thanks for joining!</p>;
+  }
+  return (
+      <form onSubmit={handleSubmit}>
+      <label htmlFor="email">
+        Email Address
+      </label>
+      <input
+        id="email"
+        type="email" 
+        name="email"
+      />
+      <ValidationError 
+        prefix="Email" 
+        field="email"
+        errors={state.errors}
+      />
+      <textarea
+        id="message"
+        name="message"
+      />
+      <ValidationError 
+        prefix="Message" 
+        field="message"
+        errors={state.errors}
+      />
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+    </form>
+  );
+}
+</script>
+<br><br>
   <h2>¿Qué te pareció nuestra recomendación?</h2>
   <br>
 
