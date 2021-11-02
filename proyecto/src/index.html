@@ -18,5 +18,57 @@
   <div style="margin: 10; padding: 10">
     <app-root></app-root>
   </div>
+   <div class="row justify-content-center" *ngIf="isRecomendation">
+    <br /><br />
+    <h2>¿Qué te pareció nuestra recomendación?</h2>
+    <br />
+    <div class="col-md-3">
+      <img src="/assets/Imagenes/OK.jpg" width="20%" height="50%" />
+      <div id="count_click"></div>
+      <button id="botonClick">¡Excelente!</button>
+      <p id="areaContador"></p>
+      <script type="text/javascript">
+        var botonElement = document.getElementById("botonClick");
+        var pElement = document.getElementById("areaContador");
+        var contador = 0;
+        botonElement.onclick = function () {
+          contador++;
+          pElement.textContent = contador;
+        };
+      </script>
+    </div>
+
+    <div class="col-md-3">
+      <img src="/assets/Imagenes/SoSo.jpg" width="30%" height="40%" />
+      <div id="count_click2"></div>
+      <button id="boton">No muy bueno</button>
+      <p id="area"></p>
+      <script type="text/javascript">
+        var botonElement2 = document.getElementById("boton");
+        var pElement2 = document.getElementById("area");
+        var contador2 = 0;
+        botonElement2.onclick = function () {
+          contador2++;
+          pElement2.textContent = contador2;
+        };
+      </script>
+    </div>
+
+    <div class="col-md-3">
+      <img src="/assets/Imagenes/BAD.jpg" width="20%" height="50%" />
+      <div id="count_click3"></div>
+      <button id="Click">¡Todo mal!</button>
+      <p id="Contador"></p>
+      <script type="text/javascript">
+        var botonElement3 = document.getElementById("Click");
+        var pElement3 = document.getElementById("Contador");
+        var contador3 = 0;
+        botonElement3.onclick = function () {
+          contador3++;
+          pElement3.textContent = contador3;
+        };
+      </script>
+    </div>
+  </div>
 </body>
 </html>
