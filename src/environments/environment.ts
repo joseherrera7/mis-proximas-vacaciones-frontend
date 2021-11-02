@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  server: 'https://api.bing.microsoft.com/',
+  server: 'http://localhost:4000/',
   clave1: '7de0481354394428b4b9e30bdc9f759a',
   clave2: '375c1ed0a7ab47cf926a7769477254eb'
 };

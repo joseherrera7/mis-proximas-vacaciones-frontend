@@ -1,51 +1,31 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiServiceService {
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
-  getImageInfo(image: string): Observable<any[]> {
-    let body = {
-      
-       image
+  getImageInfo(file) {
+    console.log('File', file)
+    const formData = new FormData();
+    formData.append('upload', file, 'image.jpg') 
+
+    formData.append(
+      'user_image',
+      file,
+      'imagen.jpg'
+    );
+
+    console.log('Formdata:', formData);
+
+    var requestOptions = {
+      method: 'POST',
+      body: formData,
     };
-    console.log('hace llamado')
-    return this.httpClient
-      .post<any[]>(`${environment.server}`, body)
-      .pipe(
-        tap(
-          async (res: any) => {
-            console.log(res);
-          },
-          (err) => {
-            console.error(err);
-          }
-        )
-      );
-  }
 
-  getWeatherInfo(place: string) {
-    
-    console.log('Weather of: ' , place)
-    /*return this.httpClient
-      .post<any[]>(`${environment.server}`)
-      .pipe(
-        tap(
-          async (res: any) => {
-            console.log(res);
-          },
-          (err) => {
-            console.error(err);
-          }
-        )
-      );*/
-      
+    return fetch(environment.server + 'api/processImage', requestOptions)
   }
+ 
 }
